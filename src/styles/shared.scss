@@ -1,0 +1,16 @@
+.custom-links
+{
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover
+    {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.cursor-pointer
+{
+	cursor: pointer;
+}

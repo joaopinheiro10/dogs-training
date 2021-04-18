@@ -1,0 +1,27 @@
+@import '../../styles/shared.scss';
+@import '../../styles/colors.scss';
+
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: $navbar-color;
+    color: white;
+    min-height: 7vh;
+    margin-bottom: 3vh;
+}
+
+.title
+{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.paw-dog-image
+{
+    padding-left: 0.5rem;
+    max-height: 20px; 
+}
+

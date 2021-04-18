@@ -1,0 +1,86 @@
+@import '../../styles/shared.scss';
+@import '../../styles/colors.scss';
+
+.dog-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: -3px -5px rgba(92, 92, 92, 0.5);
+    border-radius: 1rem;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        margin: 0 !important;
+    }
+    
+    .dog
+    {
+        box-shadow: 1px 2px rgba(92, 92, 92, 0.5);
+        border-radius: 1rem;
+        background-color: $list-color;
+        height: 100%;
+        min-height: 3vh;
+        margin: 1rem;
+        padding-top: 0.2rem;
+        text-transform: capitalize;
+        font-weight: 600;
+
+        @media only screen and (max-width: 768px) 
+        {
+            padding: 0.1rem;
+            text-align: center;
+            width: auto;
+        }
+
+        .sub-breed
+        {
+            border: 1px solid black;
+            border-radius: 1rem;
+            min-width: 30%;
+
+            @media only screen and (max-width: 768px)
+             {
+                min-width: 40%;
+                padding: 0 0.5rem;
+            }
+        }
+    }
+}
+
+.title-list
+{
+    text-align: left;
+    font-weight: 700;
+}
+
+.scroll-75
+{
+    max-height: 75vh;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    /* Track */
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #ededed; 
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+
+    @media only screen and (max-width: 768px)
+    {
+        max-height: none;
+        overflow: hidden;
+    }
+}

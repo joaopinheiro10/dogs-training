@@ -1,0 +1,15 @@
+@import '../../styles/colors.scss';
+
+.search
+{
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: $input-color;
+    min-width: 30%;
+    color: white;
+
+    &::-webkit-input-placeholder 
+    {
+        color: white;
+    }
+}

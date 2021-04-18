@@ -1,0 +1,38 @@
+@import '../../styles/shared.scss';
+
+.image-dog
+{
+    height: 30vh;
+    max-width: 100%;
+
+    &:hover
+    {
+        height: 40vh;
+    }
+
+    @media screen and (max-width: 1200px) 
+    {
+        height: auto;
+        width: 80%;
+
+        &:hover
+        {
+            width: 90%;
+            height: auto;
+        }
+        
+    }
+}
+
+.title-images
+{
+    text-transform: capitalize;
+    text-decoration: underline;
+    text-align: left;
+}
+
+.home-image
+{
+    padding-left: 0.5rem;
+    max-height: 40px; 
+}
