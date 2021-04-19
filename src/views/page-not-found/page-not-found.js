@@ -16,7 +16,7 @@ export default function PageNotFound(props)
         axios.get('https://dog.ceo/api/breeds/image/random')
         .then(resp =>
         {
-            setImage(resp.message);
+            setImage(resp.data.message);
         })
     }
 

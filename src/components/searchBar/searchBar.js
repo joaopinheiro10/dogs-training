@@ -8,7 +8,8 @@ export default function SearchBar(props)
             className="search"
             key="search-bar-dog"
             value={props.value}
-            placeholder="Type Dog Breed"
+            placeholder="Enter your dog breed here"
+            data-testid="search-bar"
             onChange={(e) => props.setValue(e.target.value)}
         />
     );

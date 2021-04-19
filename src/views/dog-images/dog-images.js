@@ -1,15 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import './dog-images.scss';
 import home from '../../images/home.png';
 import Loader from 'react-loader-spinner';
 
 export default function DogImages(props)
 {
-    const pathToSearch = props.location.pathname.split('/');
+    const pathToSearch = useLocation().pathname.split('/');
     const [images, setImages] = useState();
     const [loading, setLoading] = useState(true);
+    const [errorMode, setErrorMode] = useState(false);
 
     useEffect(() =>
     {
@@ -18,6 +19,7 @@ export default function DogImages(props)
 
     const getDogImages = () =>
     {
+        setLoading(true);
         const request = pathToSearch[3] ? 
             `https://dog.ceo/api/breed/${pathToSearch[2]}/${pathToSearch[3]}/images/random/10` :
             `https://dog.ceo/api/breed/${pathToSearch[2]}/images/random/10`;
@@ -29,7 +31,8 @@ export default function DogImages(props)
         })
         .catch(err =>
         {
-            console.log(err);
+            setLoading(false);
+            setErrorMode(true);
         });
     }
 
@@ -39,7 +42,8 @@ export default function DogImages(props)
         {
             return (
                 <div className="m-1 align-center col-3"
-                    key={index}>
+                    key={index}
+                    data-testid="dog-image">
                     <img className="image-dog p-3" 
                         src={image} 
                         alt={`Dog ${index}`} 
@@ -54,8 +58,11 @@ export default function DogImages(props)
     return (
         <div>
             <div className="ml-4 justify-content-between row">
-                <h1 className="title-images">{pathToSearch[1]} {pathToSearch[2]}</h1>
-                <Link to="/" className="col-2 align-left custom-links">
+                <h1 className="title-images" data-testid="breed-title">
+                    {pathToSearch[2]} {pathToSearch[3]}
+                </h1>
+                <Link to="/" className="col-2 align-left custom-links"
+                    data-testid="home-button">
                     <img
                         src={home}
                         alt="home"
@@ -63,18 +70,30 @@ export default function DogImages(props)
                     />
                 </Link>
             </div>
-            <div className="col-12 row align-items-center justify-content-center images">
+            <div className="col-12 row align-items-center justify-content-center images"
+                data-testid="content">
                 {loading ?
-                <Loader
-                    type="Puff"
-                    height={100}
-                    width={100}
-                    show={loading}
-                />
+                    <Loader
+                        type="Puff"
+                        height={100}
+                        width={100}
+                        show={loading}
+                        data-testid="loader"
+                    />
                 :
-                images
+                errorMode ?
+                    <div data-testid="error">
+                        <h2>Something went wrong</h2>
+                    </div>
+                :
+                    images
             }
             </div>
+            <button className="button-images"
+                onClick={() => getDogImages()}
+                data-testid="reload-button">
+                New Images
+            </button>
         </div>
     )
 }

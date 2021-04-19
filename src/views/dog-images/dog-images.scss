@@ -1,13 +1,16 @@
 @import '../../styles/shared.scss';
+@import '../../styles/colors.scss';
 
 .image-dog
 {
     height: 30vh;
     max-width: 100%;
+    transition: 0.5s all ease-in-out;
 
     &:hover
     {
-        height: 40vh;
+        height: 35vh;
+        max-width: auto;
     }
 
     @media screen and (max-width: 1200px) 
@@ -35,4 +38,13 @@
 {
     padding-left: 0.5rem;
     max-height: 40px; 
+}
+
+.button-images
+{
+    padding: 0.5rem;
+    margin: 2rem;
+    background-color: $reload-color;
+    color: white;
+    border-radius: 0.5rem;
 }
