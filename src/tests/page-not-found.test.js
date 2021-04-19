@@ -1,6 +1,6 @@
 import axiosMock from 'axios';
 import { render } from "@testing-library/react";
-import PageNotFound from "../views/page-not-found/page-not-found";7
+import PageNotFound from "../views/page-not-found/page-not-found";
 
 jest.mock('axios');
 
