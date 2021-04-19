@@ -21,13 +21,15 @@ export default function PageNotFound(props)
     }
 
     return (
-        <div className="page-not-found">
+        <div className="page-not-found"
+            data-testid="not-found">
             <h1>Page not found!</h1>
             <h2>Here's a cute dog</h2>
             <img
                 className="random-img"
                 src={image}
                 alt="random dog"
+                data-testid="random-image"
             />
         </div>
     )
